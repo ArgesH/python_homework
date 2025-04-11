@@ -130,3 +130,5 @@ prodhimi_i_numrave_te_nje_liste(my_l=my_list)
 print(prodhimi_i_numrave_te_nje_liste(my_l=[1,2,3,4]))
 
 print(prodhimi_i_numrave_te_nje_liste(my_list))
+
+
