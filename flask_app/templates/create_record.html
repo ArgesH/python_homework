@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/records/create/" method="post">
+        Condition: <input type="text" name="condition"><br>
+        Medication: <input type="text" name="medication"><br>
+        Date: <input type="datetime" name="date"><br>
+        Test Result: <input type="text" name="test_results"><br>
+        Patient: <select name=patient_id>
+            {% for p in all_patients %}
+                <option value="{{p.id}}" SELECTED>{{p.name}}</option>
+            {% endfor %}     
+        </select>
+        <button type="submit" name="submit">Submit</button>
+    </form>
+</body>
+</html>
