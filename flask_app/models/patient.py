@@ -68,18 +68,3 @@ class Patient:
             is_valid = False
 
         return is_valid
-
-"test@test.com"
-"password_testing_salt"
-"Today!sfridaythat1makethispass_testing_salt_test@test.com"
-
-
-
-"paqkj1n23jksjdnkjah"
-
-"1231iu2ojo1i2nj3k1"
-
-password_string = "test123"
-hashed = bcrypt.generate_password_hash(password_string)
-# hashed = $2b$12$sqjyok5RQccl9S6eFLhEPuaRaJCcH3Esl2RWLm/cimMIEnhnLb7iC
-bcrypt.check_password_hash(hashed_password, password_string)

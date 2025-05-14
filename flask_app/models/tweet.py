@@ -8,10 +8,15 @@ class Tweet:
         self.content = data["content"]
         self.created_at = data["created_at"]
         self.user = None
-    
+
     @classmethod
-    def get_all(cls):
-        pass
+    def get_by_id(cls, id):
+        query = "select * from tweet where id = %(my_id)s"
+        data = connect_to_mysql("tweet").query_db(query, {"my_id": id})
+        if data:
+            row = data[0]
+            return cls(row)
+        return []
 
     @classmethod
     def create_tweet(cls, data):
@@ -31,3 +36,15 @@ class Tweet:
             flash("Content cant be more than 160 chars!")
     
         return is_valid
+
+    @classmethod
+    def update_tweet_by_id(cls, data):
+        query = "update tweet set content = %(content)s where id = %(id)s"
+        connect_to_mysql("tweet").query_db(query, data)
+        return
+
+    @classmethod
+    def delete_tweet_by_id(cls, id):
+        query = "delete from tweet where id = %(id)s"
+        connect_to_mysql("tweet").query_db(query, {"id": id})
+        return
